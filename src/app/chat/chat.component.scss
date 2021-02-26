@@ -1,0 +1,338 @@
+.container {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+header {
+  height: 3rem;
+  background-color: hsl(299, 64%, 15%);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  i {
+    margin: 0.5rem 1rem 1rem 1rem;
+    //   margin-left: 1rem;
+    //   margin-bottom: 0;
+    color: white;
+    font-size: 25px;
+  }
+
+  .user-icon-align {
+    position: absolute;
+    right: 1px;
+  }
+
+  .company-name {
+    margin-top: 0.5rem;
+    background: #49254a;
+    border: 1px solid rgb(154, 134, 155);
+    width: 30rem;
+    border-radius: 5px;
+    height: 1.5rem;
+    color: #cfc6cf;
+    text-align: left;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+}
+
+.sidebar {
+  width: 220px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #3f0e40;
+}
+
+.main-content {
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+.backdrop {
+  position: fixed;
+  // display: none;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.open {
+  display: block !important;
+}
+
+.modal {
+  position: fixed;
+  // display: none;
+  z-index: 200;
+  top: 10%;
+  left: 30%;
+  width: 50%;
+  height: 60%;
+  min-width: 30%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  .modal__title {
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .modal__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    .modal__action {
+      border: 1px solid #dddddd;
+      background: #dddddd;
+      text-decoration: none;
+      color: #6d6c6d;
+      font: inherit;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+form {
+  margin-top: 2rem;
+
+  label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.modal__content {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.bold {
+  font-weight: 1000;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: #f8f8f8;
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, black);
+  border-radius: 6px;
+  visibility: visible;
+}
+
+@media (max-width: 40rem) {
+  .modal {
+    height: 70%;
+  }
+
+  form input {
+    width: 65%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  header {
+    height: 3rem;
+    background-color: hsl(299, 64%, 15%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    i {
+      margin: 0.5rem 1rem 1rem 1rem;
+      //   margin-left: 1rem;
+      //   margin-bottom: 0;
+      color: white;
+      font-size: 25px;
+    }
+
+    .user-icon-align {
+      position: absolute;
+      right: 1px;
+    }
+
+    .company-name {
+      margin-top: 0.5rem;
+      background: #49254a;
+      border: 1px solid rgb(154, 134, 155);
+      width: 15rem;
+      border-radius: 5px;
+      height: 1.5rem;
+      color: #cfc6cf;
+      text-align: left;
+    }
+
+    .toggle-button {
+      display: block;
+      width: 3rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding-top: 0;
+      padding-bottom: 0;
+      vertical-align: middle;
+    }
+
+    .toggle-button:focus {
+      outline: none;
+    }
+
+    .toggle-button__bar {
+      width: 100%;
+      height: 0.2rem;
+      background: white;
+      display: block;
+      margin: 0.6rem 0;
+    }
+  }
+}
+
+@media (max-width: 25rem) {
+  .modal {
+    height: 90%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  header {
+    height: 3rem;
+    background-color: hsl(299, 64%, 15%);
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+    i {
+      margin: 0.5rem 1rem 1rem 1rem;
+      //   margin-left: 1rem;
+      //   margin-bottom: 0;
+      color: white;
+      font-size: 25px;
+    }
+
+    .user-icon-align {
+      position: absolute;
+      right: 1px;
+    }
+
+    .company-name {
+      margin-top: 0.5rem;
+      background: #49254a;
+      border: 1px solid rgb(154, 134, 155);
+      width: 10rem;
+      border-radius: 5px;
+      height: 1.5rem;
+      color: #cfc6cf;
+      text-align: left;
+    }
+
+    .toggle-button {
+      width: 3rem;
+      display: block;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding-top: 0;
+      padding-bottom: 0;
+      vertical-align: middle;
+    }
+
+    .toggle-button:focus {
+      outline: none;
+    }
+
+    .toggle-button__bar {
+      width: 100%;
+      height: 0.2rem;
+      background: white;
+      display: block;
+      margin: 0.6rem 0;
+    }
+  }
+}

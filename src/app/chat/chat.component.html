@@ -1,0 +1,52 @@
+<div class="backdrop" *ngIf="showBackdrop" (click)="closeModal()"></div>
+<div class="modal" *ngIf="showModal">
+  <h1 class="modal__title bold">Create a Channel</h1>
+  <h4>
+    Channels are where your team communicates. They’re best when organized
+    around a topic — #marketing, for example.
+  </h4>
+  <form action="">
+    <label for="" class="bold">Name</label>
+    <input type="text" placeholder="# e.g. plan-budget" />
+    <label for="" class="bold">Description (Optional)</label>
+    <input type="text" />
+    <p>What's this channel about ?</p>
+  </form>
+  <div class="modal__content">
+    <span>
+      <h1 class="bold">Make Private</h1>
+      <p>
+        When a channel is set to private. It can only be viewed by invitations
+      </p>
+    </span>
+    <span
+      ><label class="switch">
+        <input type="checkbox" checked />
+        <span class="slider round"></span>
+      </label>
+    </span>
+  </div>
+  <div class="modal__actions">
+    <i class="fa fa-info-circle">Learn more</i>
+    <button class="modal__action" type="button" (click)="closeModal()">
+      Create
+    </button>
+  </div>
+</div>
+<header>
+  <button class="toggle-button">
+    <span class="toggle-button__bar"></span>
+    <span class="toggle-button__bar"></span>
+    <span class="toggle-button__bar"></span>
+  </button>
+  <i class="fa fa-clock-o"></i>
+  <button class="company-name">Search Company Name</button>
+  <i class="fa fa-question-circle"></i>
+  <i class="fa fa-user user-icon-align"></i>
+</header>
+<div class="container">
+  <app-sidebar class="sidebar" (modalEvent)="openModal()"></app-sidebar>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

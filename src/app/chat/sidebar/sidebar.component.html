@@ -1,0 +1,69 @@
+<div class="sidebar-header">
+  <h2 class="text-nowrap organization-name">Company name</h2>
+</div>
+<div class="sidebar-container">
+  <div class="threads-button">
+    <i class="fa fa-arrow-alt-circle-down"></i>
+    <a class="sidebar-name"><i class="fa ev-mail"></i>Threads</a>
+  </div>
+  <div class="dms-button">
+    <!-- <i class="fa fa-arrow-alt-circle-down"></i> -->
+    <a class="sidebar-name"><i class="fa ev-mail"></i>All DMs</a>
+  </div>
+  <div class="mentions_reactions-button">
+    <!-- <i class="fa fa-arrow-alt-circle-down"></i> -->
+    <a class="sidebar-name"
+      ><i class="fa ev-at-sign"></i>Mentions & Reactions</a
+    >
+  </div>
+  <div class="more-button">
+    <a class="sidebar-name">More</a>
+  </div>
+  <div class="channel-button">
+    <a class="sidebar-name"><i class="fa ev-arrow-bold-right"></i>Channels</a>
+    <button>
+      <i class="fa fa-plus" (click)="openModal()"></i>
+    </button>
+  </div>
+  <div
+    class="list-item"
+    routerLinkActive="active"
+    *ngFor="let channel of channels"
+  >
+    <a class="text-nowrap" routerLink="channelpage/{{ channel.name }}">
+      <span class="sidebar-name channel">{{ channel.name }}</span>
+      <span class="message-count" *ngIf="channel.unread">{{
+        channel.unread
+      }}</span>
+    </a>
+  </div>
+  <div class="list-item" routerLinkActive="active">
+    <a class="text-nowrap">
+      <span class="sidebar-name">
+        <i class="fa fa-plus-square"></i> Add Channels
+      </span>
+    </a>
+  </div>
+
+  <div class="channel-button">
+    <a class="sidebar-name"
+      ><i class="fa ev-arrow-bold-right"></i>Direct Messages</a
+    >
+    <button>
+      <i class="fa fa-plus" (click)="navigateToDirectMessage()"></i>
+    </button>
+  </div>
+  <div
+    class="list-item"
+    routerLinkActive="active"
+    *ngFor="let dm of directMessages"
+  >
+    <a class="text-nowrap" [routerLink]="['/app/chatpage/', dm.userId]">
+      <span class="sidebar-name"
+        ><span class="status" [ngClass]="{ online: dm.active }"></span>
+        {{ dm.name }}</span
+      >
+      <span class="message-count" *ngIf="dm.unread">{{ dm.unread }}</span>
+    </a>
+  </div>
+</div>

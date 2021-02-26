@@ -1,0 +1,161 @@
+<div class="chat">
+  <div class="chat__header">
+    <div class="chat__header__left">
+      <div class="chat__name">
+        <mat-icon class="icon">lock</mat-icon>
+        <p>{{ channelName }}</p>
+        <mat-icon class="icon star">star_border</mat-icon>
+      </div>
+      <h5>Add a topic</h5>
+    </div>
+    <div class="chat__header__right">
+      <div matTooltip="view all members" class="chat__members">
+        <mat-icon class="icon yellow">account_box</mat-icon>
+        <mat-icon class="icon green">account_box</mat-icon>
+        <mat-icon class="icon black">account_box</mat-icon>
+        <strong class="count">18</strong>
+      </div>
+      <mat-icon matTooltip="Add member" class="icon">person_add</mat-icon>
+      <mat-icon matTooltip="Show channel details" class="icon"
+        >help_outline</mat-icon
+      >
+    </div>
+  </div>
+
+  <div class="chat__body">
+    <!-- <div class="msg__details">
+      <mat-icon class="icon">account_box</mat-icon>
+      <div class="chat__details">
+        <div class="text__name__time">
+          <h4>UserName</h4>
+          <p>time</p>
+        </div>
+        <div class="chat__msg">
+          <p>Hello Everyone</p>
+        </div>
+      </div>
+      <div class="icons__floater">
+        <mat-icon class="icons">mood</mat-icon>
+        <mat-icon class="icons">textsms</mat-icon>
+        <mat-icon class="icons">shortcut</mat-icon>
+        <mat-icon class="icons">bookmark</mat-icon>
+        <mat-icon class="icons">more_vert</mat-icon>
+      </div>
+    </div> -->
+
+    <div
+      class="msg__details"
+      *ngFor="let messages of currentChannel; let i = index"
+    >
+      <mat-icon class="icon">account_box</mat-icon>
+      <div class="chat__details">
+        <div class="text__name__time">
+          <h4>{{ messages.username }}</h4>
+          <p>{{ messages.timestamp | date: "shortTime" }}</p>
+        </div>
+        <div class="chat__msg">
+          <p>{{ messages.message }}</p>
+        </div>
+      </div>
+      <div class="icons__floater">
+        <mat-icon class="icons">mood</mat-icon>
+        <mat-icon class="icons">textsms</mat-icon>
+        <mat-icon class="icons">shortcut</mat-icon>
+        <mat-icon class="icons">bookmark</mat-icon>
+        <mat-icon class="icons">more_vert</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="send__msg">
+    <div class="send__msg__container">
+      <form>
+        <textarea
+          placeholder="Send a message.."
+          class="msg__input"
+          type="text"
+          [(ngModel)]="message"
+          name="message"
+        ></textarea>
+        <div class="form__menus">
+          <div class="menu__left">
+            <mat-icon
+              matTooltip="Shortcut"
+              matTooltipPosition="above"
+              class="icons"
+              style="border-right: 1px solid grey"
+              >flash_on</mat-icon
+            >
+            <mat-icon class="icons" matTooltip="Bold" matTooltipPosition="above"
+              >format_bold</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="Italics"
+              matTooltipPosition="above"
+              >format_italic</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="StrikeThrough"
+              matTooltipPosition="above"
+              >strikethrough_s</mat-icon
+            >
+            <mat-icon class="icons" matTooltip="Code" matTooltipPosition="above"
+              >code_off</mat-icon
+            >
+            <mat-icon class="icons" matTooltip="Link" matTooltipPosition="above"
+              >link</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="NumberedList"
+              matTooltipPosition="above"
+              >format_list_numbered</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="BulletList"
+              matTooltipPosition="above"
+              >format_list_bulleted</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="Format Quotes"
+              matTooltipPosition="above"
+              >format_quote</mat-icon
+            >
+            <mat-icon
+              class="icons"
+              matTooltip="Block Quote"
+              matTooltipPosition="above"
+              >integration_instructions</mat-icon
+            >
+          </div>
+          <div class="menu__right">
+            <mat-icon class="icons" matTooltipPosition="above"
+              >text_fields</mat-icon
+            >
+            <mat-icon class="icons" matTooltipPosition="above"
+              >alternate_email</mat-icon
+            >
+            <mat-icon class="icons" matTooltipPosition="above"
+              >sentiment_satisfied_alt</mat-icon
+            >
+            <mat-icon class="icons" matTooltipPosition="above"
+              >attach_file</mat-icon
+            >
+            <button
+              class="send__btn"
+              mat-button
+              color="green"
+              (click)="sendMessage()"
+            >
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
