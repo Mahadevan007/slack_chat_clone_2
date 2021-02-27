@@ -42,7 +42,7 @@ header {
 }
 
 .sidebar {
-  width: 220px;
+  width: 31%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -84,6 +84,9 @@ header {
   height: 60%;
   min-width: 30%;
   background: white;
+  border-radius: 28px;
+  // background: #e0e0e0;
+  box-shadow: 35px 35px 72px #8f8f8f, -35px -35px 72px #ffffff;
   padding: 1rem;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -103,7 +106,8 @@ header {
       background: #dddddd;
       text-decoration: none;
       color: #6d6c6d;
-      font: inherit;
+      // font: inherit;
+      font-weight: bold;
       padding: 0.5rem 1rem;
       cursor: pointer;
     }
@@ -310,6 +314,7 @@ input:checked + .slider:before {
       height: 1.5rem;
       color: #cfc6cf;
       text-align: left;
+      font-size: 10px;
     }
 
     .toggle-button {

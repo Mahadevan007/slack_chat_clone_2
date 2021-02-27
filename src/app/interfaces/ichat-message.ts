@@ -3,4 +3,6 @@ export interface IChatMessage {
   timestamp: Date;
   username: string;
   userId: string;
+  bold: boolean;
+  italic: boolean;
 }

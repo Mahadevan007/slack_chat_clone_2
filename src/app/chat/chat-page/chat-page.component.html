@@ -1,7 +1,56 @@
+<div class="backdrop" *ngIf="showBackdrop" (click)="closeModal()"></div>
+<div class="modal" *ngIf="showModal">
+  <h1 class="modal__title bold">Create a Channel</h1>
+  <h4>
+    Channels are where your team communicates. They’re best when organized
+    around a topic — #marketing, for example.
+  </h4>
+  <form action="">
+    <label for="" class="bold">Name</label>
+    <input
+      type="text"
+      placeholder="# e.g. plan-budget"
+      name="newChannelName"
+      [(ngModel)]="newChannelName"
+    />
+    <label for="" class="bold">Description (Optional)</label>
+    <input type="text" />
+    <p>What's this channel about ?</p>
+  </form>
+  <div class="modal__content">
+    <span>
+      <h1 class="bold">Make Private</h1>
+      <p>
+        When a channel is set to private. It can only be viewed by invitations
+      </p>
+    </span>
+    <span
+      ><label class="switch">
+        <input type="checkbox" checked />
+        <span class="slider round"></span>
+      </label>
+    </span>
+  </div>
+  <div class="modal__actions">
+    <i class="fa fa-info-circle">Learn more</i>
+    <button class="modal__action" type="button" (click)="addChannel()">
+      Create
+    </button>
+  </div>
+</div>
+<div class="backdrop2" *ngIf="showBackdrop2" (click)="closeSidebar()"></div>
+<div ngClass="mobile-nav" *ngIf="displaysidebar">
+  <app-sidebar (modalEvent)="openModal()"></app-sidebar>
+</div>
 <div class="chat">
   <div class="chat__header">
     <div class="chat__header__left">
       <div class="chat__name">
+        <button class="toggle-button" (click)="openSidebar()">
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+        </button>
         <mat-icon class="icon">lock</mat-icon>
         <p>{{ userName }}</p>
         <mat-icon class="icon star">star_border</mat-icon>
@@ -53,7 +102,10 @@
           <h4>{{ message.username }}</h4>
           <p>{{ message.timestamp | date: "shortTime" }}</p>
         </div>
-        <div class="chat__msg">
+        <div
+          class="chat__msg"
+          [ngClass]="{ bold: message.bold, italic: message.italic }"
+        >
           <p>{{ message.message }}</p>
         </div>
       </div>
@@ -75,6 +127,7 @@
           class="msg__input"
           type="text"
           [(ngModel)]="message"
+          [ngClass]="{ bold: boldText, italic: italicText }"
           name="message"
         ></textarea>
         <div class="form__menus">
@@ -86,11 +139,16 @@
               style="border-right: 1px solid grey"
               >flash_on</mat-icon
             >
-            <mat-icon class="icons" matTooltip="Bold" matTooltipPosition="above"
+            <mat-icon
+              class="icons"
+              (click)="toggleBoldText()"
+              matTooltip="Bold"
+              matTooltipPosition="above"
               >format_bold</mat-icon
             >
             <mat-icon
               class="icons"
+              (click)="toggleItalicText()"
               matTooltip="Italics"
               matTooltipPosition="above"
               >format_italic</mat-icon
@@ -145,14 +203,14 @@
             <mat-icon class="icons" matTooltipPosition="above"
               >attach_file</mat-icon
             >
-            <button
+            <!-- <button
               class="send__btn"
               mat-button
               color="green"
-              (click)="sendMessage()"
-            >
-              <mat-icon>send</mat-icon>
-            </button>
+              
+            > -->
+            <mat-icon class="send__btn" (click)="sendMessage()">send</mat-icon>
+            <!-- </button> -->
           </div>
         </div>
       </form>

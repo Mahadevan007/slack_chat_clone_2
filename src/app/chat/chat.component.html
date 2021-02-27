@@ -7,7 +7,12 @@
   </h4>
   <form action="">
     <label for="" class="bold">Name</label>
-    <input type="text" placeholder="# e.g. plan-budget" />
+    <input
+      type="text"
+      placeholder="# e.g. plan-budget"
+      name="newChannelName"
+      [(ngModel)]="newChannelName"
+    />
     <label for="" class="bold">Description (Optional)</label>
     <input type="text" />
     <p>What's this channel about ?</p>
@@ -28,17 +33,12 @@
   </div>
   <div class="modal__actions">
     <i class="fa fa-info-circle">Learn more</i>
-    <button class="modal__action" type="button" (click)="closeModal()">
+    <button class="modal__action" type="button" (click)="addChannel()">
       Create
     </button>
   </div>
 </div>
 <header>
-  <button class="toggle-button">
-    <span class="toggle-button__bar"></span>
-    <span class="toggle-button__bar"></span>
-    <span class="toggle-button__bar"></span>
-  </button>
   <i class="fa fa-clock-o"></i>
   <button class="company-name">Search Company Name</button>
   <i class="fa fa-question-circle"></i>

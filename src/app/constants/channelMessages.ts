@@ -8,31 +8,41 @@ export const channelMessages: channelMessage[] = [
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Karthik",
                 userId: "karthik78",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Aravind",
                 userId: "aravind11",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             }
         ]
     },
@@ -43,38 +53,50 @@ export const channelMessages: channelMessage[] = [
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
 
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Karthik",
                 userId: "karthik78",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Aravind",
                 userId: "aravind11",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             }
         ]
     },
@@ -85,38 +107,50 @@ export const channelMessages: channelMessage[] = [
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
 
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Karthik",
                 userId: "karthik78",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Aravind",
                 userId: "aravind11",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             }
         ]
     },
@@ -127,43 +161,57 @@ export const channelMessages: channelMessage[] = [
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Karthik",
                 userId: "karthik78",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Aravind",
                 userId: "aravind11",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             }
         ]
     },
@@ -174,43 +222,57 @@ export const channelMessages: channelMessage[] = [
                 username: "Ashwin",
                 userId: "ash1234",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Arun",
                 userId: "arun1234",
                 message: "Hello",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Vinoth",
                 userId: "vinoth55",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Karthik",
                 userId: "karthik78",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             },
             {
                 username: "Aravind",
                 userId: "aravind11",
                 message: "Hi",
-                timestamp: new Date()
+                timestamp: new Date(),
+                bold: false,
+                italic: false
             }
         ]
     }

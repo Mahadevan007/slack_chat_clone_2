@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { messageService } from '../services/message.service';
+
 
 @Component({
   selector: 'app-chat',
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class ChatComponent implements OnInit {
   showModal: boolean = false;
   showBackdrop: boolean = false;
-  constructor() { }
+  newChannelName: string;
+  constructor(private messageService: messageService) { }
 
   ngOnInit() {
   }
@@ -18,9 +21,17 @@ export class ChatComponent implements OnInit {
     this.showBackdrop = true;
   }
 
+
   closeModal() {
     this.showBackdrop = false;
     this.showModal = false;
+  }
+
+  addChannel() {
+    console.log(this.newChannelName);
+    this.messageService.addNotification(this.newChannelName, "channel");
+    this.messageService.createChannel(this.newChannelName);
+    this.closeModal();
   }
 
 }

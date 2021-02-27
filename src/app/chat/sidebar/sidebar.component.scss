@@ -30,6 +30,7 @@
 }
 
 .sidebar-container {
+  overflow: scroll;
   background-color: #350d36;
   flex: 1;
   overflow-y: scroll;
@@ -126,6 +127,7 @@
     position: relative;
     color: rgb(197, 183, 198);
     transition: all 0.2s;
+    margin-left: 48px;
 
     a {
       color: rgb(197, 183, 198);
@@ -222,4 +224,61 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(transparent, #967b96);
   border-radius: 6px;
+}
+
+i {
+  margin-right: 10px;
+}
+
+.backdrop {
+  position: fixed;
+  // display: none;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.open {
+  display: block !important;
+}
+
+.modal {
+  position: fixed;
+  // display: none;
+  z-index: 200;
+  top: 10%;
+  left: 30%;
+  width: 50%;
+  height: 60%;
+  min-width: 30%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  .modal__title {
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .modal__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    .modal__action {
+      border: 1px solid #dddddd;
+      background: #dddddd;
+      text-decoration: none;
+      color: #6d6c6d;
+      // font: inherit;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background-color: black;
+    }
+  }
 }

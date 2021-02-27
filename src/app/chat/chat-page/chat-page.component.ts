@@ -3,6 +3,8 @@ import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import messages from '../../constants/messages';
 import { IChatMessage } from '../../interfaces/ichat-message';
 import { Subscription } from 'rxjs';
+import { HostListener } from "@angular/core";
+import { messageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-chat-page',
@@ -11,20 +13,42 @@ import { Subscription } from 'rxjs';
 })
 export class ChatPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  chatMessages: IChatMessage[] = [];
+  subscription2: Subscription;
+  showBackdrop2: boolean = false;
+  newChannelName: string;
+  showModal: boolean = false;
+  showBackdrop: boolean = false;
+  displaysidebar: boolean = false;
+  chatMessages: any[] = [];
+  boldText: boolean = false;
+  italicText: boolean = false;
   // userName: string = "";
-  currentUser: IChatMessage[] = [];
+  currentUser: any[] = [];
   userName: string = "";
   message: string = "";
   userId: string = "";
   @ViewChild('f', { static: true }) messagetext: Input
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private messageService: messageService) { }
 
   ngOnInit() {
     var that = this;
-
     this.chatMessages = messages;
-    this.subscription = this.route.params.subscribe(
+    this.subscription = this.messageService.messagesChanged.subscribe((data: IChatMessage[]) => {
+      this.chatMessages = data;
+      this.currentUser = [];
+      const id = this.route.snapshot.params['id'];
+      this.userId = id;
+      console.log("ID======", id);
+      this.chatMessages.forEach(function (data, index) {
+        console.log(data);
+        if (data.userId == id) {
+          console.log(that.currentUser)
+          that.userName = data.username;
+          that.currentUser.push(data)
+        }
+      })
+    })
+    this.subscription2 = this.route.params.subscribe(
       (params: Params) => {
         this.currentUser = [];
         const id = this.route.snapshot.params['id'];
@@ -44,19 +68,68 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.subscription2.unsubscribe();
     this.subscription.unsubscribe()
   }
 
-  sendMessage() {
-    console.log(this.message)
-    this.currentUser.push({
-      message: this.message,
-      userId: this.userId,
-      username: "You",
-      timestamp: new Date()
-    })
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.showBackdrop2 = false;
+    this.displaysidebar = false;
+
   }
 
+  sendMessage() {
+    if (this.message != "") {
+      console.log(this.message)
+      this.messageService.addMessage({
+        message: this.message,
+        userId: this.userId,
+        username: "You",
+        timestamp: new Date(),
+        bold: this.boldText,
+        italic: this.italicText
+      })
+      this.message = "";
+    }
+  }
+
+  openSidebar() {
+    this.displaysidebar = true;
+    this.showBackdrop2 = true;
+  }
+
+  closeSidebar() {
+    this.showBackdrop2 = false;
+    this.displaysidebar = false;
+    this.showBackdrop = false;
+    this.showModal = false;
+  }
+
+  toggleBoldText() {
+    this.boldText = this.boldText == true ? false : true;
+  }
+
+  openModal() {
+    console.log("show Modal")
+    this.showModal = true;
+    this.showBackdrop = true;
+  }
+
+  closeModal() {
+    this.showBackdrop = false;
+    this.showModal = false;
+  }
+
+  toggleItalicText() {
+    this.italicText = this.italicText == true ? false : true;
+  }
+
+  addChannel() {
+    console.log(this.newChannelName);
+    this.messageService.addNotification(this.newChannelName, "channel");
+    this.messageService.createChannel(this.newChannelName);
+    this.closeModal();
+  }
 
 }

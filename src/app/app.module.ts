@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatButtonModule } from '@angular/material/button';
 import { ChannelPageComponent } from './chat/channel-page/channel-page.component'
 import { FormsModule } from '@angular/forms';
+import { messageService } from "./services/message.service"
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [messageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

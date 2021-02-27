@@ -12,21 +12,24 @@
   </div>
 </div>
 <div class="direct-messaging_main">
-  <div class="direct-messaging_date1">
-    <div class="date">Yesterday</div>
+  <div *ngFor="let directmessage of directMessages; let i = index">
+    {{ log(directmessage) }}
+    <div class="direct-messaging_date1">
+      <div class="date">{{ directmessage.timestamp | date: "shortTime" }}</div>
+    </div>
+    <div class="direct-messaging_data">
+      <button [routerLink]="['/app/chatpage/', directmessage.userId]">
+        <div>
+          <i class="fa fa-user"></i>
+        </div>
+        <div class="messaging-button_content">
+          <div class="username">{{ directmessage.username }}</div>
+          <div class="message">{{ directmessage.message }}</div>
+        </div>
+      </button>
+    </div>
   </div>
-  <div class="direct-messaging_data">
-    <button>
-      <div>
-        <i class="fa fa-user"></i>
-      </div>
-      <div class="messaging-button_content">
-        <div class="username">User 1</div>
-        <div class="message">You: Hello</div>
-      </div>
-    </button>
-  </div>
-  <div class="direct-messaging_date1">
+  <!-- <div class="direct-messaging_date1">
     <div class="date">Today</div>
   </div>
   <div class="direct-messaging_data">
@@ -39,8 +42,8 @@
         <div class="message">You: Hello</div>
       </div>
     </button>
-  </div>
-  <div class="direct-messaging_date1">
+  </div> -->
+  <!-- <div class="direct-messaging_date1">
     <div class="date">Today</div>
   </div>
   <div class="direct-messaging_data">
@@ -53,5 +56,5 @@
         <div class="message">You: Hello</div>
       </div>
     </button>
-  </div>
+  </div> -->
 </div>
